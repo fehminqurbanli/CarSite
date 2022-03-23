@@ -1,0 +1,78 @@
+﻿@model CarSiteMVC.UI.ViewModels.CarViewModel
+@{ 
+    var data = Model.TB_Ads_List;
+    string currency = "";
+    var currencyName = Model.GeneralInfos.FirstOrDefault(x => x.Id == data.FirstOrDefault().Currency_Id).Name;
+    
+    currency = currencyName == "USD" ? "$" : "€";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="~/css/exploreCarIndex.css" />
+</head>
+<body>
+    
+    <div class="container">
+        <br>
+        <h2>Buy the best economic car</h2>
+        <br>
+        <div class="row" id="ads">
+            @foreach (var item in Model.TB_Ads_List)
+            {
+                DateTime dt = DateTime.Now;
+                int newOrUsed = item.Year;
+                int currentYear = dt.Year;
+                string carStatus="";
+                if (newOrUsed==currentYear)
+                {
+                    carStatus = "New";
+                }
+                else if (newOrUsed < currentYear)
+                {
+                    carStatus = "Used";
+                }
+                //modelid=>modelname
+                var modelName = Model.Models.FirstOrDefault(a => a.Id == item.Model_Id).ModelName;
+                int brandId = Model.Models.FirstOrDefault(a => a.Id == item.Model_Id).BrandId;
+                var brandName = Model.Brands.FirstOrDefault(b => b.Id == brandId).BrandName;
+                var imagePath = Model.TB_AdsImages.FirstOrDefault(a => a.Ads_Id == item.Id).CarImagePath;
+                <div class="col-md-4">
+                    <div class="card rounded">
+                        <div class="card-image">
+                            <span class="card-notify-badge">@item.City</span>
+                            <span class="card-notify-year">@item.Year</span>
+                            <div>
+                                <img class="img-fluid" src="~/ImagesForAds/@imagePath" alt="Alternate Text" style="height:200px;width:100%;" />
+                            </div>
+                        </div>
+                        <div class="card-image-overlay m-auto">
+                            <span class="card-detail-badge">@carStatus</span>
+                            <span class="card-detail-badge">@currency @item.Price</span>
+                            <span class="card-detail-badge">@item.Distance Kms</span>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="ad-title m-auto">
+                                <h5>@brandName @modelName</h5>
+                            </div>
+                            <a class="ad-btn" asp-controller="ExploreCar" asp-action="Details" asp-route-id="@item.Id">View</a>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            }
+           
+        </div>
+    </div>
+
+
+
+</body>
+</html>

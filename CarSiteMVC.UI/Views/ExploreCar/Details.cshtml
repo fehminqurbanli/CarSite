@@ -1,0 +1,136 @@
+﻿@model CarSiteMVC.UI.ViewModels.CarViewModel
+@{
+    var data = Model.TB_Ads_List;
+    var brandId = Model.Models.FirstOrDefault(x => x.Id == Model.TB_Ads_List.FirstOrDefault().Model_Id).BrandId;
+    var brandName = Model.Brands.FirstOrDefault(x => x.Id == brandId).BrandName;
+    var modelName = Model.Models.FirstOrDefault(x => x.Id == Model.TB_Ads_List.FirstOrDefault().Model_Id).ModelName;
+    //var banId = data.FirstOrDefault(x => x.Id == Model.TB_Ads_List.FirstOrDefault().Id).Ban_Type;
+    var banName = Model.GeneralInfos.FirstOrDefault(x => x.Id == data.FirstOrDefault().Ban_Type).Name;
+    var colorName = Model.GeneralInfos.FirstOrDefault(x => x.Id == data.FirstOrDefault().Color_Id).Name;
+    var speedBoxName = Model.GeneralInfos.FirstOrDefault(x => x.Id == data.FirstOrDefault().Speed_Box).Name;
+    var transmissionName = Model.GeneralInfos.FirstOrDefault(x => x.Id == data.FirstOrDefault().Transmission_Id).Name;
+    var currencyName = Model.GeneralInfos.FirstOrDefault(x => x.Id == data.FirstOrDefault().Currency_Id).Name;
+}
+<div class="container">
+    <div style="height: 100px; background-color: #f2d900" class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col pt-3" style="color:black"><i class="fas fa-phone"></i><b> Phone number: @data.FirstOrDefault().PhoneNumber</b><br /><i class="fas fa-clock"></i> City: @data.FirstOrDefault().City</div>
+    </div>
+    <div style="background-color: #323232;" class="row">
+        <div class="col">
+            <img src="~/ImagesForAds/@Model.TB_AdsImages.FirstOrDefault().CarImagePath" class="card-img-top m-2" style="height:500px">
+        </div>
+        <div class="col row p-2">
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                @foreach (var item in Model.TB_AdsImages)
+                {
+                    <div class="col-4">
+                        <div class="card">
+
+                            <img src="~/ImagesForAds/@item.CarImagePath" class="card-img-top" style="height:100px">
+
+                        </div>
+                    </div>
+                }
+                @*@for (int i = 0; i < 8; i++)
+                    {
+                        <div class="col">
+                            <div class="card">
+
+                                <img src="~/image/2017_toyota_prius_plugi-in_ftq.jpg" class="card-img-top" style="height:100px">
+
+                            </div>
+                        </div>
+                    }*@
+
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+
+    <div class="row">
+        <div class="col-4 text-center" style="background-color: #f2d900">
+            <h2 style="color:black"><b>@data.FirstOrDefault().Price<sup>@currencyName</sup></b></h2>
+        </div>
+        <div class="col-8">
+            <h2>@brandName @modelName, @data.FirstOrDefault().Year year,<br /><b>@data.FirstOrDefault().Distance km </b></h2><h3><i class="fas fa-user-alt"></i>@data.FirstOrDefault().Name</h3>
+        </div>
+    </div>
+
+    <br />
+    <hr />
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-3 row">
+            <div class="col">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>City</b></li>
+                    <li class="list-group-item"><b>Brand</b></li>
+                    <li class="list-group-item"><b>Model</b></li>
+                    <li class="list-group-item"><b>Year</b></li>
+                    <li class="list-group-item"><b>Ban type</b></li>
+                    <li class="list-group-item"><b>Color</b></li>
+                    <li class="list-group-item"><b>Distance</b></li>
+                    <li class="list-group-item"><b>Speed box</b></li>
+                    <li class="list-group-item"><b>Transmission</b></li>
+                    <li class="list-group-item"><b>New/Used</b></li>
+                    <li class="list-group-item"><b>Price</b></li>
+                </ul>
+            </div>
+
+
+        </div>
+        <div class="col-3">
+            <ul class="list-group list-group-flush">
+
+                <li class="list-group-item">@data.FirstOrDefault().City</li>
+                <li class="list-group-item">@brandName</li>
+                <li class="list-group-item">@modelName</li>
+                <li class="list-group-item">@data.FirstOrDefault().Year</li>
+                <li class="list-group-item">@banName</li>
+                <li class="list-group-item">@colorName</li>
+                <li class="list-group-item">@data.FirstOrDefault().Distance km</li>
+                <li class="list-group-item">@speedBoxName</li>
+                <li class="list-group-item">@transmissionName</li>
+                <li class="list-group-item">@(data.FirstOrDefault().Distance==0?"New":"Used")</li>
+                <li class="list-group-item"><b>@data.FirstOrDefault().Price @currencyName</b></li>
+
+
+            </ul>
+        </div>
+        <div class="col-3">
+            <ul style="list-style-type:disc;">
+                @if (data.FirstOrDefault().Condisioner == true)
+                {
+                    <li>Yüngül lehimli disklər</li>
+                }
+                @if (data.FirstOrDefault().Leather_Salon == true)
+                {
+                    <li>ABS</li>
+                }
+                @if (data.FirstOrDefault().Lyuk == true)
+                {
+                    <li>Lyuk</li>
+                }
+                @if (data.FirstOrDefault().Park_Radar == true)
+                {
+                    <li>Yağış sensoru</li>
+                }
+                @if (data.FirstOrDefault().Rear_Camera == true)
+                {
+                    <li>Mərkəzi qapanma</li>
+                }
+                @if (data.FirstOrDefault().Seat_Heating == true)
+                {
+                    <li>Park radarı</li>
+                }
+               
+            </ul>
+            <hr />
+            @data.FirstOrDefault().Note
+        </div>
+    </div>
+</div>

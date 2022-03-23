@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Constants\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.0" />
+    <PackageReference Include="FluentValidation" Version="10.3.6" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarSite.Core\CarSite.Core.csproj" />
+    <ProjectReference Include="..\CarSite.DataAccess\CarSite.DataAccess.csproj" />
+    <ProjectReference Include="..\CarSite.Entities\CarSite.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

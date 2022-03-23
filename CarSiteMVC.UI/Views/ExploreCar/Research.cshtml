@@ -1,0 +1,139 @@
+﻿@*@model IEnumerable<CarSite.Entities.Concrete.TB_Ads>*@
+@model CarSiteMVC.UI.ViewModels.CarViewModel
+@{
+    var data = Model.TB_Ads_List;
+    string currency = "";
+    var currencyName = Model.GeneralInfos.FirstOrDefault(x => x.Id == data.FirstOrDefault().Currency_Id).Name;
+
+    currency = currencyName == "USD" ? "$" : "€";
+}
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="~/css/exploreCarIndex.css" />
+</head>
+<body>
+    <h1>Filter cars to find quickly</h1>
+
+    <br />
+
+
+    <br />
+
+
+    
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <select class="form-select" id="SelectListCarBrand" required asp-items="@(new SelectList(Model.Brands,"Id","BrandName"))">
+                    <option selected>Select Brand</option>
+                </select>
+            </div>
+            <div class="col">
+                @using (Html.BeginForm("ResearchPage", "ExploreCar", FormMethod.Get))
+                {
+                    @*@Html.TextBox("searching")*@
+                    @*<input type="submit" value="Search" />*@
+                    <a class="btn btn-outline-info" asp-controller="ExploreCar" asp-action="ResearchPage" asp-route-brandid=>View</a>
+
+                }
+
+                @*<select class="form-select" id="SelectListCarModel" required asp-for="@Model.tB_Ads.Model_Id">
+                        <option>Select Model</option>
+                    </select>*@
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container">
+        <br>
+        <h2>Buy the best economic car</h2>
+        <br>
+        <div class="row" id="ads">
+            @foreach (var item in Model.TB_Ads_List)
+            {
+                if (item != null)
+                {
+                    DateTime dt = DateTime.Now;
+                    int newOrUsed = item.Year;
+                    int currentYear = dt.Year;
+                    string carStatus = "";
+                    if (newOrUsed == currentYear)
+                    {
+                        carStatus = "New";
+                    }
+                    else if (newOrUsed < currentYear)
+                    {
+                        carStatus = "Used";
+                    }
+                    //modelid=>modelname
+                    var modelName = Model.Models.FirstOrDefault(a => a.Id == item.Model_Id).ModelName;
+                    int brandId = Model.Models.FirstOrDefault(a => a.Id == item.Model_Id).BrandId;
+                    var brandName = Model.Brands.FirstOrDefault(b => b.Id == brandId).BrandName;
+                    var imagePath = Model.TB_AdsImages.FirstOrDefault(a => a.Ads_Id == item.Id).CarImagePath;
+                    <div class="col-md-4">
+                        <div class="card rounded">
+                            <div class="card-image">
+                                <span class="card-notify-badge">@item.City</span>
+                                <span class="card-notify-year">@item.Year</span>
+                                <div>
+                                    <img class="img-fluid" src="~/ImagesForAds/@imagePath" alt="Alternate Text" style="height:200px;width:100%;" />
+                                </div>
+                            </div>
+                            <div class="card-image-overlay m-auto">
+                                <span class="card-detail-badge">@carStatus</span>
+                                <span class="card-detail-badge">@currency @item.Price</span>
+                                <span class="card-detail-badge">@item.Distance Kms</span>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="ad-title m-auto">
+                                    <h5>@brandName @modelName</h5>
+                                </div>
+                                <a class="ad-btn" asp-controller="ExploreCar" asp-action="Details" asp-route-id="@item.Id">View</a>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    $('#SelectListCarBrand').on('change', function () {
+        $.getJSON('/AddCar/GetModelsForBrand?id=' + $(this).val(), function (data) {
+
+            var items = ''
+            $.each(data, function (i, item) {
+                items += "<option value='" + item.id + "'>" + item.modelName + "</option > "
+
+            });
+            $('#SelectListCarModel').html(items);
+        });
+    });
+    
+
+</script>
+

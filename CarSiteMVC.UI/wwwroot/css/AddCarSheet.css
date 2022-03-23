@@ -1,0 +1,32 @@
+﻿.frontView {
+    border: 1px solid black;
+}
+
+    .frontView:hover {
+        border-color: dodgerblue;
+    }
+
+.backView {
+    border: 1px solid black;
+}
+
+    .backView:hover {
+        border-color: dodgerblue;
+    }
+
+
+.frontPanel {
+    border: 1px solid black;
+}
+
+    .frontPanel:hover {
+        border-color: dodgerblue;
+    }
+
+.plusLogo {
+    border: 1px solid black;
+}
+
+    .plusLogo:hover {
+        border-color: dodgerblue;
+    }

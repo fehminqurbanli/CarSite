@@ -1,0 +1,358 @@
+﻿@model CarSiteMVC.UI.ViewModels.CarViewModel
+
+
+<form method="post" enctype="multipart/form-data" asp-action="Save" asp-controller="AddCar">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="@Model.tB_Ads.Id" />
+    <div class="container">
+        <div class="p-2">
+            <h6 class="p-2">&nbsp;<b>SELL YOUR CAR</b></h6>
+            <span class="border-bottom"></span>
+        </div>
+
+
+        <div class="container">
+
+            <div>
+                <div class="row">
+                    <div class="col-2">
+                        <small>Brand <small style="color: #ca1016;">*</small></small>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-select" id="SelectListCarBrand" required asp-items="@(new SelectList(Model.Brands,"Id","BrandName"))">
+                            <option selected>Select Brand</option>
+                        </select>
+
+                    </div>
+                    <div class="col-2">
+                        <small>Transmission <small style="color: #ca1016;">*</small></small>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-select" asp-for="@Model.tB_Ads.Transmission_Id" required asp-items="@(new SelectList(Model.Transmission,"Id","Name"))">
+                            <option>Select transmission type</option>
+                        </select>
+                        @*<span asp-validation-for="Model.tB_ADS_Model.Transmission_Id" class="text-danger"></span>*@
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-2">
+                        <small>Model <small style="color: #ca1016;">*</small></small>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-select" id="SelectListCarModel" required asp-for="@Model.tB_Ads.Model_Id">
+                            <option>Select Model</option>
+                        </select>
+                        @*<span asp-validation-for="Model.tB_ADS_Model.Model_Id" class="text-danger"></span>*@
+                    </div>
+                    <div class="col-2">
+                        <small>Speed Box <small style="color: #ca1016;">*</small></small>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-select" asp-for="@Model.tB_Ads.Speed_Box" required asp-items="@(new SelectList(Model.SpeedBox,"Id","Name"))">
+                            <option>Select speedbox</option>
+                        </select>
+                        @*<span asp-validation-for="Model.tB_ADS_Model.Speed_Box" class="text-danger"></span>*@
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-2">
+                        <small>Ban Type <small style="color: #ca1016;">*</small></small>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-select" asp-for="@Model.tB_Ads.Ban_Type" required asp-items="@(new SelectList(Model.BanType,"Id","Name"))">
+                            <option>Select ban type</option>
+                        </select>
+                        @*<span asp-validation-for="Model.tB_ADS_Model.Ban_Type" class="text-danger"></span>*@
+                    </div>
+                    <div class="col-2">
+                        <small>Year <small style="color: #ca1016;">*</small></small>
+                    </div>
+                    <div class="col-4 ">
+                        <select class="form-select" required asp-for="@Model.tB_Ads.Year">
+                            <option>Select year</option>
+                            @for (int i = DateTime.Now.Year; i > 1950; i--)
+                            {
+                                <option>@i</option>
+                            }
+                        </select>
+                        @*<span asp-validation-for="Model.tB_ADS_Model.Year" class="text-danger"></span>*@
+
+                    </div>
+                </div>
+                <br />
+
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-2">
+                        <small>Distance <small style="color: #ca1016;">*</small></small>
+                    </div>
+                    <div class="row col-4 ">
+                        <div class="col-6">
+                            <input type="number" asp-for="@Model.tB_Ads.Distance" required class="form-control" step="10000">
+                            @*<span asp-validation-for="Model.tB_ADS_Model.Distance" class="text-danger"></span>*@
+                        </div>
+
+                    </div>
+                    <div class="col-2" style="margin-left:2.6%;">
+                        <small>Color <small style="color: #ca1016;">*</small></small>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-select" asp-for="@Model.tB_Ads.Color_Id" required  asp-items="@(new SelectList(Model.Color,"Id","Name"))">
+                            <option>Select color</option>
+                        </select>
+                        @*<span asp-validation-for="Model.tB_ADS_Model.Color_Id" class="text-danger"></span>*@
+
+                    </div>
+                </div>
+                <br />
+
+
+
+                <div class="row">
+                    <div class="col-2">
+                        <small>Price <small style="color: #ca1016;">*</small></small>
+                    </div>
+                    <div class="row col-4 ">
+                        <div class="col-6">
+                            <input type="number" class="form-control" required asp-for="@Model.tB_Ads.Price" min="500">
+                            @*<span asp-validation-for="Model.tB_ADS_Model.Price" class="text-danger"></span>*@
+                        </div>
+                        <div class="col-6 row">
+
+                            <div class="form-check col">
+                                <input class="form-check-input" asp-for="@Model.tB_Ads.Currency_Id" required value="15" type="radio" checked>
+                                <label class="form-check-label" asp-for="@Model.tB_Ads.Currency_Id">
+                                    <small>USD</small>
+                                </label>
+                            </div>
+                            <div class="form-check col">
+                                <input class="form-check-input" asp-for="@Model.tB_Ads.Currency_Id" required value="16" type="radio">
+                                <label class="form-check-label" asp-for="@Model.tB_Ads.Currency_Id">
+                                    <small>EUR</small>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <br />
+
+                <br />
+            </div>
+
+            <div class="row">
+                <div class="col-4 offset-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" asp-for="@Model.tB_Ads.Credit_Have">
+                        <label class="form-check-label">
+                            By Credit
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" asp-for="@Model.tB_Ads.Barter">
+                        <label class="form-check-label">
+                            Barter
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                    <small>Additional information</small>
+                </div>
+                <div class="col-10">
+                    <textarea class="form-control" rows="3" asp-for="@Model.tB_Ads.Note"></textarea>
+                    <small style="color:darkgray;">Don't write phone number to here</small>
+                </div>
+            </div>
+
+            <br />
+            <div>
+                <h5>Car Supply</h5>
+                <div class="row">
+                    <div class="col">
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" asp-for="@Model.tB_Ads.Leather_Salon">
+                            <label class="form-check-label">
+                                Leather Salon
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" asp-for="@Model.tB_Ads.Lyuk">
+                            <label class="form-check-label">
+                                Lyuk
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" asp-for="@Model.tB_Ads.Park_Radar">
+                            <label class="form-check-label">
+                                Park Radar
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" asp-for="@Model.tB_Ads.Seat_Heating">
+                            <label class="form-check-label">
+                                Seat Heating
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" asp-for="@Model.tB_Ads.Condisioner">
+                            <label class="form-check-label">
+                                Condisioner
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" asp-for="@Model.tB_Ads.Rear_Camera">
+                            <label class="form-check-label">
+                                Rear_Camera
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <br />
+            <div>
+                <h5>Pictures</h5>
+                <div class="row mb-2 mt-2" style="border-style:dashed; border-color:darkgray; height:200px;">
+                    <div class="col-3 mt-3">
+                        <ul style="list-style-type:none; color:darkgray">
+                            <li><p>- Minimum – 3 pictures (front, back və whole front pane).</p></li>
+                            <li><p>- Maksimum – 21 pictures.</p></li>
+                            <li><p>- Optimal size – 1024x768 pixel.</p></li>
+                        </ul>
+
+                    </div>
+                    <div class="col-9 row mt-4">
+                        <div class="col frontView" style="width:125px;height:125px;">
+                            <label for="file-input">
+                                <img src="/image/frontCar.jpg" style="width:100%;height:100%;" />
+                            </label>
+                            <input type="file" name="ifile" multiple />
+                        </div>
+                        <div class="col backView" style="width:125px;height:125px;">
+                            <img src="/image/back_car.jpg" style="width: 100%; height: 100%; " />
+                        </div>
+                        <div class="col frontPanel" style="width:125px;height:125px;">
+                            <img src="/image/frontPanel2.jpg" style="width: 100%; height: 100%; " />
+                        </div>
+                        <div class="col plusLogo" style="width:125px;height:125px;">
+                            <img src="/image/plusLogo.png" style="width: 100%; height: 100%;" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <br />
+            <div class="row mt-3">
+                <div class="col">
+                    <ul style="list-style-type:circle;color:darkgray">
+                        <li><small>Pictures taken at the car dealership must be registered at the expense of the registered car dealership.</small></li>
+                        <li>
+                            <small>
+                                Images must be of good quality. The vehicle must be well lit,
+                                there must be no logo or other inscriptions on the pictures. Screenshots are not accepted.
+                            </small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <br />
+            <div>
+                <h5>Contact</h5>
+                <div class="row">
+                    <div class="col-2">
+                        <small>Your name <small style="color: #ca1016;">*</small></small>
+                        @*<span asp-validation-for="Model.tB_ADS_Model.Name" class="text-danger"></span>*@
+
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" asp-for="@Model.tB_Ads.Name" required>
+                        @*<span asp-validation-for="Model.tB_ADS_Model.Name" class="text-danger"></span>*@
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-2">
+                        <small>City <small style="color: #ca1016;">*</small></small>
+                        @*<span asp-validation-for="Model.tB_ADS_Model.Name" class="text-danger"></span>*@
+
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" asp-for="@Model.tB_Ads.City" required>
+                        @*<span asp-validation-for="@Model.tB_Ads.City" class="text-danger"></span>*@
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-2">
+                        <small>Phone number <small style="color: #ca1016;">*</small></small>
+                        @*<span asp-validation-for="Model.tB_ADS_Model.Name" class="text-danger"></span>*@
+
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" asp-for="@Model.tB_Ads.PhoneNumber" required>
+                        @*<span asp-validation-for="Model.tB_ADS_Model.Name" class="text-danger"></span>*@
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-2">
+                        <small>E-mail <small style="color: #ca1016;">*</small></small>
+                        @*<span asp-validation-for="Model.tB_ADS_Model.Email" class="text-danger"></span>*@
+
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" asp-for="@Model.tB_Ads.Email" required>
+                        @*<span asp-validation-for="Model.tB_ADS_Model.Email" class="text-danger"></span>*@
+                        <small style="color:darkgray">Hidden in site</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <br />
+
+
+    </div>
+
+    <div class="row mt-1">
+        <button class="btn btn-outline-success vipElan col-8 offset-2" type="submit" asp-controller="AddCar" asp-action="Save" style="color: darkslategray;"><b>POST FREE</b></button>
+
+    </div>
+
+</form>
+
+@*Javascript codes*@
+<script type="text/javascript">
+    $('#SelectListCarBrand').on('change', function () {
+        $.getJSON('/AddCar/GetModelsForBrand?id=' + $(this).val(), function (data) {
+
+            var items = ''
+            $.each(data, function (i, item) {
+                items += "<option value='" + item.id + "'>" + item.modelName + "</option > "
+
+            });
+            $('#SelectListCarModel').html(items);
+        });
+    });
+
+</script>

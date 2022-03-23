@@ -1,0 +1,12 @@
+D:\CarSiteBackup\CarSite\CarSite.Core\bin\Debug\net5.0\CarSite.Core.deps.json
+D:\CarSiteBackup\CarSite\CarSite.Core\bin\Debug\net5.0\CarSite.Core.dll
+D:\CarSiteBackup\CarSite\CarSite.Core\bin\Debug\net5.0\ref\CarSite.Core.dll
+D:\CarSiteBackup\CarSite\CarSite.Core\bin\Debug\net5.0\CarSite.Core.pdb
+D:\CarSiteBackup\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.csproj.AssemblyReference.cache
+D:\CarSiteBackup\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\CarSiteBackup\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.AssemblyInfoInputs.cache
+D:\CarSiteBackup\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.AssemblyInfo.cs
+D:\CarSiteBackup\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.csproj.CoreCompileInputs.cache
+D:\CarSiteBackup\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.dll
+D:\CarSiteBackup\CarSite\CarSite.Core\obj\Debug\net5.0\ref\CarSite.Core.dll
+D:\CarSiteBackup\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.pdb

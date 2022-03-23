@@ -1,0 +1,15 @@
+D:\CarSiteBackup\CarSite\CarSite.Entities\bin\Debug\net5.0\CarSite.Entities.deps.json
+D:\CarSiteBackup\CarSite\CarSite.Entities\bin\Debug\net5.0\CarSite.Entities.dll
+D:\CarSiteBackup\CarSite\CarSite.Entities\bin\Debug\net5.0\ref\CarSite.Entities.dll
+D:\CarSiteBackup\CarSite\CarSite.Entities\bin\Debug\net5.0\CarSite.Entities.pdb
+D:\CarSiteBackup\CarSite\CarSite.Entities\bin\Debug\net5.0\CarSite.Core.dll
+D:\CarSiteBackup\CarSite\CarSite.Entities\bin\Debug\net5.0\CarSite.Core.pdb
+D:\CarSiteBackup\CarSite\CarSite.Entities\obj\Debug\net5.0\CarSite.Entities.csproj.AssemblyReference.cache
+D:\CarSiteBackup\CarSite\CarSite.Entities\obj\Debug\net5.0\CarSite.Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\CarSiteBackup\CarSite\CarSite.Entities\obj\Debug\net5.0\CarSite.Entities.AssemblyInfoInputs.cache
+D:\CarSiteBackup\CarSite\CarSite.Entities\obj\Debug\net5.0\CarSite.Entities.AssemblyInfo.cs
+D:\CarSiteBackup\CarSite\CarSite.Entities\obj\Debug\net5.0\CarSite.Entities.csproj.CoreCompileInputs.cache
+D:\CarSiteBackup\CarSite\CarSite.Entities\obj\Debug\net5.0\CarSite.Entities.csproj.CopyComplete
+D:\CarSiteBackup\CarSite\CarSite.Entities\obj\Debug\net5.0\CarSite.Entities.dll
+D:\CarSiteBackup\CarSite\CarSite.Entities\obj\Debug\net5.0\ref\CarSite.Entities.dll
+D:\CarSiteBackup\CarSite\CarSite.Entities\obj\Debug\net5.0\CarSite.Entities.pdb
