@@ -10,3 +10,15 @@ D:\CarSiteBackup\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.csproj.CoreC
 D:\CarSiteBackup\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.dll
 D:\CarSiteBackup\CarSite\CarSite.Core\obj\Debug\net5.0\ref\CarSite.Core.dll
 D:\CarSiteBackup\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.pdb
+C:\Users\LENOVO\Source\Repos\CarSite\CarSite.Core\bin\Debug\net5.0\CarSite.Core.deps.json
+C:\Users\LENOVO\Source\Repos\CarSite\CarSite.Core\bin\Debug\net5.0\CarSite.Core.dll
+C:\Users\LENOVO\Source\Repos\CarSite\CarSite.Core\bin\Debug\net5.0\CarSite.Core.pdb
+C:\Users\LENOVO\Source\Repos\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Source\Repos\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LENOVO\Source\Repos\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.AssemblyInfoInputs.cache
+C:\Users\LENOVO\Source\Repos\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.AssemblyInfo.cs
+C:\Users\LENOVO\Source\Repos\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Source\Repos\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.dll
+C:\Users\LENOVO\Source\Repos\CarSite\CarSite.Core\obj\Debug\net5.0\refint\CarSite.Core.dll
+C:\Users\LENOVO\Source\Repos\CarSite\CarSite.Core\obj\Debug\net5.0\CarSite.Core.pdb
+C:\Users\LENOVO\Source\Repos\CarSite\CarSite.Core\obj\Debug\net5.0\ref\CarSite.Core.dll
